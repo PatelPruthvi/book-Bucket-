@@ -1,0 +1,6 @@
+package com.example.bookbucket
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
