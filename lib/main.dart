@@ -1,3 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:bookbucket/screens/bookQouList.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -11,9 +14,10 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      routes: {
+        '/home': (context) => QoutesViewbar(),
+        '/BookQuo': (context) => BookQouList(),
+      },
       home: QoutesViewbar(),
     );
   }
@@ -46,62 +50,74 @@ class _QoutesViewbarState extends State<QoutesViewbar> {
         scrollDirection: Axis.vertical,
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Expanded(
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                          image: AssetImage('assets/images/inspiring.jpg'),
-                          fit: BoxFit.cover,
-                        )),
-                    child: const Center(
-                        child: Text(
-                      'Inspiring Quotes',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 60,
-                          fontWeight: FontWeight.w400),
-                    )),
+            GestureDetector(
+              onTap: () {
+                // Navigator.pushNamed(context, '/BookQuo');
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Expanded(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.8),
+                                BlendMode.dstATop),
+                            image: AssetImage('assets/images/inspiring.jpg'),
+                            fit: BoxFit.cover,
+                          )),
+                      child: const Center(
+                          child: Text(
+                        'Inspiring Quotes',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 60,
+                            fontWeight: FontWeight.w400),
+                      )),
+                    ),
                   ),
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Expanded(
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/books.jpg'),
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                          fit: BoxFit.cover,
-                        )),
-                    child: const Center(
-                        child: Text(
-                      'Book Quotes',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
-                    )),
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, '/BookQuo');
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Expanded(
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.4,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          image: DecorationImage(
+                            image: ExactAssetImage('assets/images/books.jpg'),
+                            colorFilter: ColorFilter.mode(
+                                Colors.black.withOpacity(0.8),
+                                BlendMode.dstATop),
+                            fit: BoxFit.cover,
+                          )),
+                      child: const Center(
+                          child: Text(
+                        'Book Quotes',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 60,
+                            fontWeight: FontWeight.w400,
+                            color: Colors.white),
+                      )),
+                    ),
                   ),
                 ),
               ),
