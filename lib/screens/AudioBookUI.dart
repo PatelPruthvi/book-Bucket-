@@ -1,6 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
-import 'package:audio_video_progress_bar/audio_video_progress_bar.dart';
+import 'package:audioplayers/audioplayers.dart';
 import 'package:bookbucket/utils/colors.dart';
 import 'package:flutter/material.dart';
 
@@ -12,10 +12,39 @@ class AudioBookUI extends StatefulWidget {
 }
 
 class _AudioBookUIState extends State<AudioBookUI> {
-  Duration compl = Duration(seconds: 0);
-  Duration total = Duration(seconds: 1400);
-  bool pause = true;
+  Duration compl = Duration.zero;
+  Duration total = Duration.zero;
+  bool isPlaying = false;
+  AudioPlayer _player = AudioPlayer();
+  String audiobook =
+      'https://ia801506.us.archive.org/16/items/cheatingthejunkpile_2208_librivox/cheatingthejunkpile_00_peyser_64kb.mp3';
+
   @override
+  void initState() {
+    getAudio();
+    _player.onPlayerStateChanged.listen((event) {
+      setState(() {
+        isPlaying = event == PlayerState.PLAYING;
+      });
+    });
+    _player.onDurationChanged.listen((Duration) {
+      setState(() {
+        total = Duration;
+      });
+    });
+    _player.onAudioPositionChanged.listen((posi) {
+      setState(() {
+        compl = posi;
+      });
+    });
+    _player.setUrl(audiobook);
+    super.initState();
+  }
+
+  getAudio() async {
+    await _player.play(audiobook);
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -53,25 +82,29 @@ class _AudioBookUIState extends State<AudioBookUI> {
                   fontWeight: FontWeight.w400)),
         ),
         Padding(
-          padding: EdgeInsets.all(20.0),
-          child: ProgressBar(
-            progress: compl,
-            total: total,
-            onSeek: (value) {
-              setState(() {
-                compl = value;
-              });
-            },
-            onDragUpdate: (details) {
-              setState(() {
-                compl = details.timeStamp;
-              });
-            },
-            progressBarColor: dark_blue_2,
-            thumbColor: dark_blue_2,
-            timeLabelLocation: TimeLabelLocation.above,
-            timeLabelTextStyle: TextStyle(color: Colors.white, fontSize: 16),
-            timeLabelPadding: 3.0,
+          padding: const EdgeInsets.fromLTRB(20, 0, 20, 0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: [
+              Text(
+                compl.toString().substring(2, 7),
+                style: TextStyle(color: Colors.white),
+              ),
+              Slider(
+                  activeColor: dark_blue_2,
+                  min: 0,
+                  max: total.inSeconds.toDouble(),
+                  value: compl.inSeconds.toDouble(),
+                  onChanged: (val) async {
+                    compl = Duration(seconds: val.toInt());
+                    await _player.seek(compl);
+                    setState(() {});
+                  }),
+              Text(
+                total.toString().substring(2, 7),
+                style: TextStyle(color: Colors.white),
+              )
+            ],
           ),
         ),
         Padding(
@@ -80,22 +113,27 @@ class _AudioBookUIState extends State<AudioBookUI> {
               height: MediaQuery.of(context).size.height / 10,
               child: IconButton(
                 iconSize: 60,
-                icon: pause
+                icon: isPlaying
                     ? Icon(
-                        Icons.play_circle,
+                        Icons.pause_circle,
                         color: Colors.white,
                       )
                     : Icon(
-                        Icons.pause_circle,
+                        Icons.play_circle,
                         color: Colors.white,
                       ),
-                onPressed: () {
+                onPressed: () async {
+                  if (isPlaying) {
+                    await _player.pause();
+                  } else {
+                    await _player.resume();
+                  }
                   setState(() {
-                    pause = !pause;
+                    isPlaying = !isPlaying;
                   });
                 },
               )),
-        )
+        ),
       ]),
     );
   }
