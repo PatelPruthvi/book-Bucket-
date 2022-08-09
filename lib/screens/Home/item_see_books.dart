@@ -12,8 +12,7 @@ class item_see_books extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            height: 300,
-            width: 240,
+            height: MediaQuery.of(context).size.height / 3.5,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
               image: DecorationImage(

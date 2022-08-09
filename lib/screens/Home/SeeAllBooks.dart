@@ -34,7 +34,9 @@ class SeeAllBooks extends StatelessWidget {
         shrinkWrap: true,
         scrollDirection: Axis.vertical,
         crossAxisCount: 2,
-        childAspectRatio: 1 / 1.7,
+        childAspectRatio: 1.2 *
+            MediaQuery.of(context).size.width /
+            MediaQuery.of(context).size.height,
         children: [
           item_see_books(imgLink, bookTitle),
           item_see_books(imgLink, bookTitle),
