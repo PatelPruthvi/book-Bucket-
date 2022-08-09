@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bookbucket/screens/AudioBookUI.dart';
+import 'package:bookbucket/screens/Home/HomeScreen.dart';
 import 'package:bookbucket/screens/audiobooklv.dart';
 import 'package:bookbucket/screens/bookQouList.dart';
 import 'package:bookbucket/screens/qoutes_reel_view.dart';
@@ -23,9 +24,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   int _currIndex = 0;
   final tabs = [
-    Center(
-      child: Text('Discover'),
-    ),
+    HomeScreen(),
     QoutesViewbar(),
     AudListView(),
     Center(
@@ -35,6 +34,7 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         routes: {
           '/home': (context) => QoutesViewbar(),
           '/BookQuo': (context) => BookQouList(),

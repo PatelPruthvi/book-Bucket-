@@ -14,12 +14,9 @@ class _BookQouListState extends State<BookQouList> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(
-            'Select Book',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
-          ),
+        title: Text(
+          'Select Book',
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
         ),
         backgroundColor: Color.fromRGBO(0, 22, 36, 1),
         centerTitle: false,

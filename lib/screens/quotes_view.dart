@@ -13,12 +13,9 @@ class _QoutesViewbarState extends State<QoutesViewbar> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Padding(
-          padding: EdgeInsets.only(left: 8.0),
-          child: Text(
-            'Quotes',
-            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
-          ),
+        title: Text(
+          'Quotes',
+          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
         ),
         backgroundColor: dark_blue,
         centerTitle: false,
