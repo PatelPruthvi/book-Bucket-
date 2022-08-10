@@ -1,5 +1,6 @@
 import 'package:bookbucket/utils/colors.dart';
 import 'package:flutter/material.dart';
+import 'BookDetail.dart';
 import 'SeeAllBooks.dart';
 import 'item_collections.dart';
 import 'item_home_books.dart';
@@ -95,7 +96,8 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return item_home_books(
-                            "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024");
+                            "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
+                            "Why Men Win at Work");
                       }),
                 ),
                 Row(
@@ -146,7 +148,8 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return item_home_books(
-                            "https://m.media-amazon.com/images/I/51gIriQ5hLL.jpg");
+                            "https://m.media-amazon.com/images/I/51gIriQ5hLL.jpg",
+                            "How to make more Money");
                       }),
                 ),
                 Row(
@@ -197,7 +200,8 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return item_home_books(
-                            "https://m.media-amazon.com/images/I/41XMvYgrIcL._SL500_.jpg");
+                            "https://m.media-amazon.com/images/I/41XMvYgrIcL._SL500_.jpg",
+                            "Calender Hacking");
                       }),
                 ),
                 Row(
@@ -248,7 +252,8 @@ class HomeScreen extends StatelessWidget {
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return item_home_books(
-                            "https://149502452.v2.pressablecdn.com/wp-content/uploads/2020/11/the-lean-startup-book-001-1-2048x1152.jpeg");
+                            "https://149502452.v2.pressablecdn.com/wp-content/uploads/2020/11/the-lean-startup-book-001-1-2048x1152.jpeg",
+                            "The Learn Startup");
                       }),
                 ),
               ],
