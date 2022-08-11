@@ -56,9 +56,11 @@ class _MyAppState extends State<MyApp> {
                 tabBackgroundColor: dark_blue_1,
                 gap: 8,
                 onTabChange: (index) {
-                  setState(() {
-                    _currIndex = index;
-                  });
+                  if (mounted) {
+                    setState(() {
+                      _currIndex = index;
+                    });
+                  }
                 },
                 padding: EdgeInsets.all(16),
                 haptic: true,

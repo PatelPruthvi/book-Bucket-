@@ -29,19 +29,25 @@ class _AudioBookUIState extends State<AudioBookUI> {
   void initState() {
     getAudio();
     _player.onPlayerStateChanged.listen((event) {
-      setState(() {
-        isPlaying = event == PlayerState.PLAYING;
-      });
+      if (mounted) {
+        setState(() {
+          isPlaying = event == PlayerState.PLAYING;
+        });
+      }
     });
     _player.onDurationChanged.listen((Duration) {
-      setState(() {
-        total = Duration;
-      });
+      if (mounted) {
+        setState(() {
+          total = Duration;
+        });
+      }
     });
     _player.onAudioPositionChanged.listen((posi) {
-      setState(() {
-        compl = posi;
-      });
+      if (mounted) {
+        setState(() {
+          compl = posi;
+        });
+      }
     });
     _player.setUrl(audiobook);
     super.initState();
@@ -105,7 +111,9 @@ class _AudioBookUIState extends State<AudioBookUI> {
                     onChanged: (val) async {
                       compl = Duration(seconds: val.toInt());
                       await _player.seek(compl);
-                      setState(() {});
+                      if (mounted) {
+                        setState(() {});
+                      }
                     }),
               ),
               Text(
