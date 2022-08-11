@@ -6,6 +6,7 @@ import 'package:bookbucket/screens/audiobooklv.dart';
 import 'package:bookbucket/screens/bookQouList.dart';
 import 'package:bookbucket/screens/qoutes_reel_view.dart';
 import 'package:bookbucket/screens/quotes_view.dart';
+import 'package:bookbucket/screens/settings.dart';
 import 'package:bookbucket/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
@@ -23,14 +24,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   int _currIndex = 0;
-  final tabs = [
-    HomeScreen(),
-    QoutesViewbar(),
-    AudListView(),
-    Center(
-      child: Text('Settings'),
-    ),
-  ];
+  final tabs = [HomeScreen(), QoutesViewbar(), AudListView(), SettingScreen()];
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
