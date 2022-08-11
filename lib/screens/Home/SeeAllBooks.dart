@@ -13,6 +13,7 @@ class SeeAllBooks extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: dark_blue,
       appBar: AppBar(
         title: Text(
           appBarTitle,

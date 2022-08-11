@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:bookbucket/Settings/SettingScreen.dart';
 import 'package:bookbucket/screens/AudioBookUI.dart';
 import 'package:bookbucket/screens/Home/HomeScreen.dart';
 import 'package:bookbucket/screens/audiobooklv.dart';
@@ -27,9 +28,7 @@ class _MyAppState extends State<MyApp> {
     HomeScreen(),
     QoutesViewbar(),
     AudListView(),
-    Center(
-      child: Text('Settings'),
-    ),
+    SettingScreen(),
   ];
   @override
   Widget build(BuildContext context) {

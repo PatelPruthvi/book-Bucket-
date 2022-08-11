@@ -14,6 +14,7 @@ class BookSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: dark_blue,
       appBar: AppBar(
         title: Text(
           bookTitle,
@@ -30,7 +31,7 @@ class BookSummary extends StatelessWidget {
               child: Text(
                 tempDescription,
                 style: TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 20,
                     overflow: TextOverflow.visible,
                     fontWeight: FontWeight.normal),

@@ -41,7 +41,7 @@ class item_see_books extends StatelessWidget {
                 bookTitle,
                 maxLines: 1,
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 16),
+                style: TextStyle(fontSize: 16, color: Colors.white),
               ),
             )
           ],
