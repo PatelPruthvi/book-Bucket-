@@ -20,6 +20,12 @@ class _AudioBookUIState extends State<AudioBookUI> {
       'https://ia801506.us.archive.org/16/items/cheatingthejunkpile_2208_librivox/cheatingthejunkpile_00_peyser_64kb.mp3';
 
   @override
+  void dispose() {
+    _player.dispose();
+    super.dispose();
+  }
+
+  @override
   void initState() {
     getAudio();
     _player.onPlayerStateChanged.listen((event) {
@@ -90,16 +96,18 @@ class _AudioBookUIState extends State<AudioBookUI> {
                 compl.toString().substring(2, 7),
                 style: TextStyle(color: Colors.white),
               ),
-              Slider(
-                  activeColor: dark_blue_2,
-                  min: 0,
-                  max: total.inSeconds.toDouble(),
-                  value: compl.inSeconds.toDouble(),
-                  onChanged: (val) async {
-                    compl = Duration(seconds: val.toInt());
-                    await _player.seek(compl);
-                    setState(() {});
-                  }),
+              Expanded(
+                child: Slider(
+                    activeColor: dark_blue_2,
+                    min: 0,
+                    max: total.inSeconds.toDouble(),
+                    value: compl.inSeconds.toDouble(),
+                    onChanged: (val) async {
+                      compl = Duration(seconds: val.toInt());
+                      await _player.seek(compl);
+                      setState(() {});
+                    }),
+              ),
               Text(
                 total.toString().substring(2, 7),
                 style: TextStyle(color: Colors.white),

@@ -133,17 +133,19 @@ class BookDetail extends StatelessWidget {
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,
+                            // ignore: prefer_const_literals_to_create_immutables
                             children: [
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
+                              const Padding(
+                                padding: EdgeInsets.fromLTRB(0, 0, 10, 0),
                                 child: Icon(
                                   Icons.menu_book,
                                   color: Colors.white,
                                 ),
                               ),
+                              // ignore: prefer_const_constructors
                               Text(
                                 "Read",
-                                style: TextStyle(
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontSize: 22,
                                     overflow: TextOverflow.visible,

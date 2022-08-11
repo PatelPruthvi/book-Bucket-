@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:bookbucket/utils/colors.dart';
 import 'package:flutter/material.dart';
 import 'BookDetail.dart';
@@ -207,14 +209,16 @@ class HomeScreen extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Container(
-                      padding: EdgeInsets.fromLTRB(15, 20, 15, 0),
-                      child: Text(
-                        "To be Business Booster",
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 22,
-                            fontWeight: FontWeight.bold),
+                    Expanded(
+                      child: Container(
+                        padding: EdgeInsets.fromLTRB(15, 20, 15, 0),
+                        child: Text(
+                          "To be Business Booster",
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 22,
+                              fontWeight: FontWeight.bold),
+                        ),
                       ),
                     ),
                     Container(
