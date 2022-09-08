@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "493081794788",
+    "project_id": "book-bucket-ae60c",
+    "storage_bucket": "book-bucket-ae60c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:493081794788:android:9f0ba9daf8d813355fb4f1",
+        "android_client_info": {
+          "package_name": "com.example.bookbucket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "493081794788-bl7njgn1rf5gav45b5q485rag0fnoo3r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARleGpH57GE35M0yUDp0s3wWgNU-KfCCU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "493081794788-bl7njgn1rf5gav45b5q485rag0fnoo3r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
