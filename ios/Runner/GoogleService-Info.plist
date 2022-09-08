@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>493081794788-iosfktcrl2bsbk67rlms5jcgr34831hh.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.493081794788-iosfktcrl2bsbk67rlms5jcgr34831hh</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB_26dCmK_Jtfxv0Z9__ExVq1KBeLZaG_o</string>
+	<key>GCM_SENDER_ID</key>
+	<string>493081794788</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.bookbucketdemoo</string>
+	<key>PROJECT_ID</key>
+	<string>book-bucket-ae60c</string>
+	<key>STORAGE_BUCKET</key>
+	<string>book-bucket-ae60c.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:493081794788:ios:9c3445fc4f9f01ca5fb4f1</string>
+	<key>DATABASE_URL</key>
+	<string>https://book-bucket-ae60c-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
