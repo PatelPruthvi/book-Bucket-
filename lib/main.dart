@@ -8,10 +8,13 @@ import 'package:bookbucket/screens/bookQouList.dart';
 import 'package:bookbucket/screens/qoutes_reel_view.dart';
 import 'package:bookbucket/screens/quotes_view.dart';
 import 'package:bookbucket/utils/colors.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_nav_bar/google_nav_bar.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
