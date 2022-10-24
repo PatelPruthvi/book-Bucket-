@@ -3,13 +3,12 @@ import 'package:bookbucket/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 class BookDetail extends StatelessWidget {
-  String imgLink, bookTitle;
+  String imgLink, bookTitle, bookDescription, bookSummary;
 
-  String tempDescription =
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. " +
-          "\n\n\nLorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
-
-  BookDetail(this.imgLink, this.bookTitle, {Key? key}) : super(key: key);
+  BookDetail(
+      this.imgLink, this.bookTitle, this.bookDescription, this.bookSummary,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -66,7 +65,7 @@ class BookDetail extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 40, 0, 0),
                 child: Text(
                   bookTitle,
-                  style: TextStyle(
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 30,
                       overflow: TextOverflow.ellipsis,
@@ -77,7 +76,8 @@ class BookDetail extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(0, 10, 0, 0),
                 child: Text(
                   bookTitle,
-                  style: TextStyle(
+                  maxLines: 2,
+                  style: const TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       overflow: TextOverflow.ellipsis,
@@ -85,9 +85,9 @@ class BookDetail extends StatelessWidget {
                 ),
               ),
               Row(
-                children: [
+                children: const [
                   Padding(
-                    padding: const EdgeInsets.fromLTRB(10, 40, 0, 0),
+                    padding: EdgeInsets.fromLTRB(10, 40, 0, 0),
                     child: Text(
                       "Description",
                       style: TextStyle(
@@ -103,10 +103,11 @@ class BookDetail extends StatelessWidget {
                 children: [
                   Expanded(
                     child: Padding(
-                      padding: const EdgeInsets.fromLTRB(10, 10, 0, 0),
+                      padding: const EdgeInsets.all(20),
                       child: Text(
-                        tempDescription,
-                        style: TextStyle(
+                        bookDescription,
+                        textAlign: TextAlign.justify,
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             overflow: TextOverflow.visible,
@@ -129,7 +130,7 @@ class BookDetail extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        BookSummary(bookTitle)));
+                                        BookSummary(bookTitle, bookSummary)));
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.center,

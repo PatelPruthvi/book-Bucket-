@@ -14,7 +14,9 @@ class item_collection extends StatelessWidget {
             MaterialPageRoute(
                 builder: (context) => BookDetail(
                     "https://static.get-headway.com/334_fcecfcc514824b0090df-15ca4acc3ee5ee.jpg",
-                    "Steal Like an Artist")));
+                    "Steal Like an Artist",
+                    "",
+                    "")));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),

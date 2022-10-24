@@ -90,16 +90,18 @@ class _AudioBookUIState extends State<AudioBookUI> {
                 compl.toString().substring(2, 7),
                 style: TextStyle(color: Colors.white),
               ),
-              Slider(
-                  activeColor: dark_blue_2,
-                  min: 0,
-                  max: total.inSeconds.toDouble(),
-                  value: compl.inSeconds.toDouble(),
-                  onChanged: (val) async {
-                    compl = Duration(seconds: val.toInt());
-                    await _player.seek(compl);
-                    setState(() {});
-                  }),
+              Expanded(
+                child: Slider(
+                    activeColor: dark_blue_2,
+                    min: 0,
+                    max: total.inSeconds.toDouble(),
+                    value: compl.inSeconds.toDouble(),
+                    onChanged: (val) async {
+                      compl = Duration(seconds: val.toInt());
+                      await _player.seek(compl);
+                      setState(() {});
+                    }),
+              ),
               Text(
                 total.toString().substring(2, 7),
                 style: TextStyle(color: Colors.white),

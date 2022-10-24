@@ -1,14 +1,32 @@
 import 'package:bookbucket/utils/colors.dart';
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 import 'BookDetail.dart';
 import 'SeeAllBooks.dart';
 import 'item_collections.dart';
 import 'item_home_books.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
+  @override
+  Query win_at_work =
+      FirebaseDatabase.instance.ref().child("Home").child("To_Win_at_work");
+  Query have_more_money =
+      FirebaseDatabase.instance.ref().child("Home").child("To have more money");
+  Query be_business_booster = FirebaseDatabase.instance
+      .ref()
+      .child("Home")
+      .child("To be business booster");
+  Query be_a_prod =
+      FirebaseDatabase.instance.ref().child("Home").child("To be Productive");
+
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -91,14 +109,25 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   height: 250,
-                  child: ListView.builder(
-                      itemCount: 10,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return item_home_books(
-                            "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
-                            "Why Men Win at Work");
-                      }),
+                  child: FirebaseAnimatedList(
+                    scrollDirection: Axis.horizontal,
+                    query: win_at_work,
+                    itemBuilder: (context, snapshot, animation, index) {
+                      return item_home_books(
+                          snapshot.child("Book-img-url").value.toString(),
+                          snapshot.child("Book-title").value.toString(),
+                          snapshot.child("Book-description").value.toString(),
+                          snapshot.child("Book-summary").value.toString());
+                    },
+                  ),
+                  //   child: ListView.builder(
+                  //       itemCount: 10,
+                  //       scrollDirection: Axis.horizontal,
+                  //       itemBuilder: (context, index) {
+                  //         return item_home_books(
+                  //             "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
+                  //             "Why Men Win at Work");
+                  //       }),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -143,14 +172,17 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   height: 250,
-                  child: ListView.builder(
-                      itemCount: 10,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return item_home_books(
-                            "https://m.media-amazon.com/images/I/51gIriQ5hLL.jpg",
-                            "How to make more Money");
-                      }),
+                  child: FirebaseAnimatedList(
+                    scrollDirection: Axis.horizontal,
+                    query: have_more_money,
+                    itemBuilder: (context, snapshot, animation, index) {
+                      return item_home_books(
+                          snapshot.child("Book-img-url").value.toString(),
+                          snapshot.child("Book-title").value.toString(),
+                          snapshot.child("Book-description").value.toString(),
+                          snapshot.child("Book-summary").value.toString());
+                    },
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -195,14 +227,17 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   height: 250,
-                  child: ListView.builder(
-                      itemCount: 10,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return item_home_books(
-                            "https://m.media-amazon.com/images/I/41XMvYgrIcL._SL500_.jpg",
-                            "Calender Hacking");
-                      }),
+                  child: FirebaseAnimatedList(
+                    scrollDirection: Axis.horizontal,
+                    query: be_a_prod,
+                    itemBuilder: (context, snapshot, animation, index) {
+                      return item_home_books(
+                          snapshot.child("Book-img-url").value.toString(),
+                          snapshot.child("Book-title").value.toString(),
+                          snapshot.child("Book-description").value.toString(),
+                          snapshot.child("Book-summary").value.toString());
+                    },
+                  ),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -247,14 +282,17 @@ class HomeScreen extends StatelessWidget {
                 ),
                 Container(
                   height: 250,
-                  child: ListView.builder(
-                      itemCount: 10,
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) {
-                        return item_home_books(
-                            "https://149502452.v2.pressablecdn.com/wp-content/uploads/2020/11/the-lean-startup-book-001-1-2048x1152.jpeg",
-                            "The Learn Startup");
-                      }),
+                  child: FirebaseAnimatedList(
+                    scrollDirection: Axis.horizontal,
+                    query: be_business_booster,
+                    itemBuilder: (context, snapshot, animation, index) {
+                      return item_home_books(
+                          snapshot.child("Book-img-url").value.toString(),
+                          snapshot.child("Book-title").value.toString(),
+                          snapshot.child("Book-description").value.toString(),
+                          snapshot.child("Book-summary").value.toString());
+                    },
+                  ),
                 ),
               ],
             ),

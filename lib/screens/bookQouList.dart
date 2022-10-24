@@ -1,5 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter/material.dart';
 
 class BookQouList extends StatefulWidget {
@@ -10,35 +12,57 @@ class BookQouList extends StatefulWidget {
 }
 
 class _BookQouListState extends State<BookQouList> {
+  Query qoutes =
+      FirebaseDatabase.instance.ref().child("Quotes").child("Book Quotes");
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'Select Book',
-          style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+        appBar: AppBar(
+          title: Text(
+            'Select Book',
+            style: TextStyle(fontSize: 28, fontWeight: FontWeight.w400),
+          ),
+          backgroundColor: Color.fromRGBO(0, 22, 36, 1),
+          centerTitle: false,
         ),
         backgroundColor: Color.fromRGBO(0, 22, 36, 1),
-        centerTitle: false,
-      ),
-      backgroundColor: Color.fromRGBO(0, 22, 36, 1),
-      body: ListView.builder(
-          itemCount: 10,
-          itemBuilder: (context, index) {
-            return QuotListItem();
+        body: FirebaseAnimatedList(
+          query: qoutes,
+          itemBuilder: ((context, snapshot, animation, index) {
+            return QuotListItem(
+              snapshot.child("Author-name").value.toString(),
+              snapshot.child("Book-title").value.toString(),
+              snapshot.child("Book-img-url").value.toString(),
+            );
           }),
-    );
+        ));
   }
 }
 
 class QuotListItem extends StatefulWidget {
-  const QuotListItem({Key? key}) : super(key: key);
+  String author, bookTitle, imgUrl;
+  QuotListItem(this.author, this.bookTitle, this.imgUrl, {Key? key})
+      : super(key: key);
 
   @override
   State<QuotListItem> createState() => _QuotListItemState();
 }
 
 class _QuotListItemState extends State<QuotListItem> {
+  @override
+  void initState() {
+    getD();
+    super.initState();
+  }
+
+  String? aname, link, title;
+  getD() {
+    aname = widget.author;
+    link = widget.imgUrl;
+    title = widget.bookTitle;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -56,7 +80,7 @@ class _QuotListItemState extends State<QuotListItem> {
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Image.network(
-                    'https://www.richdad.com/MediaLibrary/RichDad/Images/3d-books/2020/front-covers/3d-front-RDPD.png',
+                    link.toString(),
                     width: MediaQuery.of(context).size.width * 0.25,
                   ),
                 ),
@@ -69,7 +93,7 @@ class _QuotListItemState extends State<QuotListItem> {
                   // ignore: prefer_const_literals_to_create_immutables
                   children: [
                     Text(
-                      'Rich Dad Poor Dad',
+                      title.toString(),
                       textAlign: TextAlign.start,
                       style: TextStyle(
                           color: Colors.white,
@@ -77,7 +101,7 @@ class _QuotListItemState extends State<QuotListItem> {
                           fontWeight: FontWeight.w600),
                     ),
                     Text(
-                      'By: Robert T kiyosaki',
+                      'By: ' + aname.toString(),
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           color: Colors.grey[300],

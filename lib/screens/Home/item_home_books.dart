@@ -3,8 +3,11 @@ import 'package:flutter/material.dart';
 import 'BookDetail.dart';
 
 class item_home_books extends StatelessWidget {
-  String imgLink, bookTitle;
-  item_home_books(this.imgLink, this.bookTitle, {Key? key}) : super(key: key);
+  String imgLink, bookTitle, bookDescription, bookSummary;
+  item_home_books(
+      this.imgLink, this.bookTitle, this.bookDescription, this.bookSummary,
+      {Key? key})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +16,8 @@ class item_home_books extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => BookDetail(imgLink, bookTitle)));
+                builder: (context) => BookDetail(
+                    imgLink, bookTitle, bookDescription, bookSummary)));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
