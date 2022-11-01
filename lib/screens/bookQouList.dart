@@ -76,14 +76,17 @@ class _QuotListItemState extends State<QuotListItem> {
               child: Container(
                 decoration: BoxDecoration(
                     color: Colors.grey[200],
+                    image: DecorationImage(
+                      image: NetworkImage(widget.imgUrl.toString()),
+                    ),
                     borderRadius: BorderRadius.circular(20)),
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Image.network(
-                    link.toString(),
-                    width: MediaQuery.of(context).size.width * 0.25,
-                  ),
-                ),
+                // child: Padding(
+                //   padding: const EdgeInsets.all(8.0),
+                //   child: Image.network(
+                //     widget.imgUrl.toString(),
+                //     width: MediaQuery.of(context).size.width * 0.25,
+                //   ),
+                // ),
               ),
             ),
             Expanded(

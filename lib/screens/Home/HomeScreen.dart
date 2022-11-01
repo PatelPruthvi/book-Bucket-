@@ -19,13 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Query win_at_work =
       FirebaseDatabase.instance.ref().child("Home").child("To_Win_at_work");
   Query have_more_money =
-      FirebaseDatabase.instance.ref().child("Home").child("To have more money");
+      FirebaseDatabase.instance.ref().child("Home").child("To_have_more_money");
   Query be_business_booster = FirebaseDatabase.instance
       .ref()
       .child("Home")
       .child("To be business booster");
   Query be_a_prod =
-      FirebaseDatabase.instance.ref().child("Home").child("To be Productive");
+      FirebaseDatabase.instance.ref().child("Home").child("To_be_productive");
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Container(
                   height: 250,
                   child: ListView.builder(
-                      itemCount: 10,
+                      itemCount: 6,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
                         return item_collection();
@@ -87,10 +87,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SeeAllBooks(
-                                        "To Win at Work",
-                                        "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
-                                        "Why Men Win at Work",
-                                      )));
+                                      "To Win at Work",
+                                      "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
+                                      "Why Men Win at Work",
+                                      FirebaseDatabase.instance
+                                          .ref()
+                                          .child("Home")
+                                          .child("To_Win_at_work"))));
                         },
                         style: ButtonStyle(
                           shape: MaterialStateProperty.resolveWith<
@@ -120,14 +123,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           snapshot.child("Book-summary").value.toString());
                     },
                   ),
-                  //   child: ListView.builder(
-                  //       itemCount: 10,
-                  //       scrollDirection: Axis.horizontal,
-                  //       itemBuilder: (context, index) {
-                  //         return item_home_books(
-                  //             "https://content.thriveglobal.com/wp-content/uploads/2020/07/IMG_0308.jpg?w=1024",
-                  //             "Why Men Win at Work");
-                  //       }),
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -150,10 +145,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SeeAllBooks(
-                                        "To have more money",
-                                        "https://m.media-amazon.com/images/I/51gIriQ5hLL.jpg",
-                                        "How to make more Money",
-                                      )));
+                                      "To have more money",
+                                      "https://m.media-amazon.com/images/I/51gIriQ5hLL.jpg",
+                                      "How to make more Money",
+                                      FirebaseDatabase.instance
+                                          .ref()
+                                          .child("Home")
+                                          .child("To_have_more_money"))));
                         },
                         style: ButtonStyle(
                           shape: MaterialStateProperty.resolveWith<
@@ -205,10 +203,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SeeAllBooks(
-                                        "To be Productive",
-                                        "https://m.media-amazon.com/images/I/41XMvYgrIcL._SL500_.jpg",
-                                        "Calender Hacking",
-                                      )));
+                                      "To be Productive",
+                                      "https://m.media-amazon.com/images/I/41XMvYgrIcL._SL500_.jpg",
+                                      "Calender Hacking",
+                                      FirebaseDatabase.instance
+                                          .ref()
+                                          .child("Home")
+                                          .child("To_be_productive"))));
                         },
                         style: ButtonStyle(
                           shape: MaterialStateProperty.resolveWith<
@@ -260,10 +261,13 @@ class _HomeScreenState extends State<HomeScreen> {
                               context,
                               MaterialPageRoute(
                                   builder: (context) => SeeAllBooks(
-                                        "To be Business Booster",
-                                        "https://149502452.v2.pressablecdn.com/wp-content/uploads/2020/11/the-lean-startup-book-001-1-2048x1152.jpeg",
-                                        "The Learn Startup",
-                                      )));
+                                      "To be Business Booster",
+                                      "https://149502452.v2.pressablecdn.com/wp-content/uploads/2020/11/the-lean-startup-book-001-1-2048x1152.jpeg",
+                                      "The Learn Startup",
+                                      FirebaseDatabase.instance
+                                          .ref()
+                                          .child("Home")
+                                          .child("To be business booster"))));
                         },
                         style: ButtonStyle(
                           shape: MaterialStateProperty.resolveWith<

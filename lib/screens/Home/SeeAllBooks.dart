@@ -8,20 +8,37 @@ import 'package:flutter/material.dart';
 import 'item_collections.dart';
 import 'item_home_books.dart';
 
-class SeeAllBooks extends StatelessWidget {
-  Query db_ref =
-      FirebaseDatabase.instance.ref().child("Home").child("To_Win_at_work");
+class SeeAllBooks extends StatefulWidget {
+  // Query db_ref =
+  //     FirebaseDatabase.instance.ref().child("Home").child("To_Win_at_work");
   String appBarTitle, imgLink, bookTitle;
-  SeeAllBooks(this.appBarTitle, this.imgLink, this.bookTitle, {Key? key})
+  Query db;
+  SeeAllBooks(this.appBarTitle, this.imgLink, this.bookTitle, this.db,
+      {Key? key})
       : super(key: key);
 
   @override
+  State<SeeAllBooks> createState() => _SeeAllBooksState();
+}
+
+class _SeeAllBooksState extends State<SeeAllBooks> {
+  @override
+  void initState() {
+    getD();
+    super.initState();
+  }
+
+  Query? db_ref;
+  void getD() {
+    db_ref = widget.db;
+  }
+
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: dark_blue,
       appBar: AppBar(
         title: Text(
-          appBarTitle,
+          widget.appBarTitle,
           style: TextStyle(fontSize: 24, fontWeight: FontWeight.w400),
         ),
         backgroundColor: dark_blue,
@@ -31,7 +48,7 @@ class SeeAllBooks extends StatelessWidget {
         children: [
           Expanded(
             child: FirebaseAnimatedList(
-                query: db_ref,
+                query: db_ref!,
                 itemBuilder: ((context, snapshot, animation, index) {
                   if (index % 2 == 0)
                     // ignore: curly_braces_in_flow_control_structures
@@ -47,7 +64,7 @@ class SeeAllBooks extends StatelessWidget {
           ),
           Expanded(
             child: FirebaseAnimatedList(
-                query: db_ref,
+                query: db_ref!,
                 itemBuilder: ((context, snapshot, animation, index) {
                   if (index % 2 != 0)
                     return item_see_books(

@@ -41,6 +41,7 @@ dependencies:
   firebase_analytics: ^9.3.3
   firebase_crashlytics: ^2.8.9
   firebase_core: ^1.24.0
+  http: ^0.13.5
   
 
 dev_dependencies:
