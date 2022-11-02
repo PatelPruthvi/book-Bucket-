@@ -30,8 +30,6 @@ class _ReelQuotesState extends State<ReelQuotes> {
         mapdata = json.decode(response.body);
       });
     }
-    print(mapdata!['quotes'][0]['text']);
-    print(mapdata!['quotes'][0]);
   }
 
   Widget build(BuildContext context) {
@@ -48,13 +46,10 @@ class _ReelQuotesState extends State<ReelQuotes> {
                 MyPost(mapdata!['quotes'][i]['text'],
                     mapdata!['quotes'][i]['author'])
             else
-              CircularProgressIndicator(),
-            // MyPost("", ""),
-            // MyPost("", ""),
-            // MyPost("", ""),
-            // MyPost("", ""),
-            // MyPost("", ""),
-            // MyPost("", ""),
+              Center(
+                  child: CircularProgressIndicator(
+                color: Colors.white,
+              )),
           ],
         ),
         Positioned(

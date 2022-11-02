@@ -36,7 +36,7 @@ class _QoutesViewbarState extends State<QoutesViewbar> {
                       borderRadius: BorderRadius.circular(20)),
                   child: Container(
                     width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
+                    height: MediaQuery.of(context).size.height * 0.8,
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
@@ -58,39 +58,39 @@ class _QoutesViewbarState extends State<QoutesViewbar> {
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushNamed(context, '/BookQuo');
-              },
-              child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Card(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(20)),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height * 0.4,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        image: DecorationImage(
-                          image: ExactAssetImage('assets/images/books.jpg'),
-                          colorFilter: ColorFilter.mode(
-                              Colors.black.withOpacity(0.8), BlendMode.dstATop),
-                          fit: BoxFit.cover,
-                        )),
-                    child: const Center(
-                        child: Text(
-                      'Book Quotes',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                          fontSize: 60,
-                          fontWeight: FontWeight.w400,
-                          color: Colors.white),
-                    )),
-                  ),
-                ),
-              ),
-            )
+            // GestureDetector(
+            //   onTap: () {
+            //     Navigator.pushNamed(context, '/BookQuo');
+            //   },
+            //   child: Padding(
+            //     padding: const EdgeInsets.all(12.0),
+            //     child: Card(
+            //       shape: RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.circular(20)),
+            //       child: Container(
+            //         width: MediaQuery.of(context).size.width,
+            //         height: MediaQuery.of(context).size.height * 0.4,
+            //         decoration: BoxDecoration(
+            //             borderRadius: BorderRadius.circular(20),
+            //             image: DecorationImage(
+            //               image: ExactAssetImage('assets/images/books.jpg'),
+            //               colorFilter: ColorFilter.mode(
+            //                   Colors.black.withOpacity(0.8), BlendMode.dstATop),
+            //               fit: BoxFit.cover,
+            //             )),
+            //         child: const Center(
+            //             child: Text(
+            //           'Book Quotes',
+            //           textAlign: TextAlign.center,
+            //           style: TextStyle(
+            //               fontSize: 60,
+            //               fontWeight: FontWeight.w400,
+            //               color: Colors.white),
+            //         )),
+            //       ),
+            //     ),
+            //   ),
+            // )
           ],
         ),
       ),

@@ -16,6 +16,36 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   @override
+  void initState() {
+    final connectedRef = FirebaseDatabase.instance.ref(".info/connected");
+    connectedRef.onValue.listen((event) {
+      final connected = event.snapshot.value as bool? ?? false;
+      if (connected) {
+        debugPrint("Connected.");
+      } else {
+        debugPrint("Not connected.");
+      }
+    });
+    super.initState();
+  }
+
+  List<String> arr = [
+    "Bill Gates Bookshelf",
+    "Elon Musk Bookshelf",
+    "Mark Zaku Bookshelf",
+    "Top 5 Business Boosting",
+    "Top 5 Leadership",
+    "Warren Buffet Bookshelf"
+  ];
+  List<String> links = [
+    'https://image.winudf.com/v2/image/YmQuY29tLmRvZC5iaWxsZ2F0ZXN0aGVyb2FkYWhlYWRfc2NyZWVuXzBfMTUzMDEwNTgzNF8wNTM/screen-0.jpg?fakeurl=1&type=.webp',
+    'https://static01.nyt.com/images/2015/05/13/arts/13BOOKVANCE/13BOOKVANCE-superJumbo.jpg?quality=75&auto=webp',
+    'https://m.media-amazon.com/images/I/41nrwyppetL._SX322_BO1,204,203,200_.jpg',
+    'https://cdn.lifehack.org/wp-content/uploads/2014/05/the-magic-of-thinking-big.jpg',
+    'https://cdn.lifehack.org/wp-content/uploads/2014/05/how-to-win-friends-and-influence-people.jpg',
+    'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1374910955l/17972688.jpg'
+  ];
+
   Query win_at_work =
       FirebaseDatabase.instance.ref().child("Home").child("To_Win_at_work");
   Query have_more_money =
@@ -46,8 +76,8 @@ class _HomeScreenState extends State<HomeScreen> {
                 Row(
                   children: [
                     Container(
-                      padding: EdgeInsets.fromLTRB(15, 10, 15, 4),
-                      child: Text(
+                      padding: const EdgeInsets.fromLTRB(15, 10, 15, 4),
+                      child: const Text(
                         "Collections",
                         style: TextStyle(
                             color: Colors.white,
@@ -63,7 +93,14 @@ class _HomeScreenState extends State<HomeScreen> {
                       itemCount: 6,
                       scrollDirection: Axis.horizontal,
                       itemBuilder: (context, index) {
-                        return item_collection();
+                        return item_collection(
+                            FirebaseDatabase.instance
+                                .ref()
+                                .child("Home")
+                                .child("Collections")
+                                .child(arr[index]),
+                            arr[index],
+                            links[index]);
                       }),
                 ),
                 Row(

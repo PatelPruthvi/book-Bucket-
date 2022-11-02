@@ -1,22 +1,40 @@
+import 'package:bookbucket/screens/Home/SeeAllBooks.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 
 import 'BookDetail.dart';
 
-class item_collection extends StatelessWidget {
-  const item_collection({Key? key}) : super(key: key);
+class item_collection extends StatefulWidget {
+  Query db;
+  String title, link;
+  item_collection(this.db, this.title, this.link, {Key? key}) : super(key: key);
 
   @override
+  State<item_collection> createState() => _item_collectionState();
+}
+
+class _item_collectionState extends State<item_collection> {
+  @override
+  void initState() {
+    getD();
+    super.initState();
+  }
+
+  Query? db_ref;
+  void getD() {
+    setState(() {
+      db_ref = widget.db;
+    });
+  }
+
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => BookDetail(
-                    "https://static.get-headway.com/334_fcecfcc514824b0090df-15ca4acc3ee5ee.jpg",
-                    "Steal Like an Artist",
-                    "",
-                    "")));
+                builder: (context) =>
+                    SeeAllBooks(widget.title, '', widget.title, db_ref!)));
       },
       child: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -25,10 +43,9 @@ class item_collection extends StatelessWidget {
           width: 220,
           decoration: BoxDecoration(
             shape: BoxShape.rectangle,
-            image: const DecorationImage(
-              image: NetworkImage(
-                  'https://static.get-headway.com/334_fcecfcc514824b0090df-15ca4acc3ee5ee.jpg'),
-              fit: BoxFit.cover,
+            image: DecorationImage(
+              image: NetworkImage(widget.link),
+              fit: BoxFit.fill,
             ),
             border: Border.all(
               color: Colors.grey.shade600,

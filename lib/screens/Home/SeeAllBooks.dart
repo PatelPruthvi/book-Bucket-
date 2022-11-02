@@ -50,7 +50,10 @@ class _SeeAllBooksState extends State<SeeAllBooks> {
             child: FirebaseAnimatedList(
                 query: db_ref!,
                 itemBuilder: ((context, snapshot, animation, index) {
+                  debugPrint(
+                      snapshot.child("Book-description").value.toString());
                   if (index % 2 == 0)
+
                     // ignore: curly_braces_in_flow_control_structures
                     return item_see_books(
                       snapshot.child("Book-img-url").value.toString(),
