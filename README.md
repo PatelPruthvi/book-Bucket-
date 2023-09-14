@@ -1,6 +1,5 @@
 # Book Bucket App
 
-
 ## Table of Contents
 
 - [About](#about)
@@ -84,6 +83,22 @@ The Book Bucket App is designed to provide users with inspirational quotes and b
    - Stay tuned for future updates, which will include an audiobook library for listening to books on the go.
 
 With the Book Bucket App, you can easily access inspiring quotes and explore book summaries, making it a handy companion for readers and enthusiasts alike.
+
+
+## Screenshots
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/76305605-34d9-4c15-a4f8-9b4ed60bfb68">
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/473fca84-7805-424b-adf7-ade29fc34a2a">
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/ea506d77-37aa-4c7e-b0a4-dd9ab85f24fd">
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/32ef357e-aeff-4b0d-8134-b956e912849c">
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/9ad7213e-ec74-4f6f-8124-575ffc3b61a7">
+<img width="300" height = "600" alt="image" src="https://github.com/PatelPruthvi/book-Bucket-/assets/71627511/cecbd3ef-b484-4e00-b282-144c4e96d785">
+
+
+
+
+
+
+
 
 ## Contributing
 Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
