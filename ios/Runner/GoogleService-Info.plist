@@ -6,6 +6,8 @@
 	<string>493081794788-iosfktcrl2bsbk67rlms5jcgr34831hh.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
 	<string>com.googleusercontent.apps.493081794788-iosfktcrl2bsbk67rlms5jcgr34831hh</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>493081794788-mdgg32e7sj0fpj8bkg19e0kpoup52nfr.apps.googleusercontent.com</string>
 	<key>API_KEY</key>
 	<string>AIzaSyB_26dCmK_Jtfxv0Z9__ExVq1KBeLZaG_o</string>
 	<key>GCM_SENDER_ID</key>
@@ -17,7 +19,7 @@
 	<key>PROJECT_ID</key>
 	<string>book-bucket-ae60c</string>
 	<key>STORAGE_BUCKET</key>
-	<string>book-bucket-ae60c.appspot.com</string>
+	<string>book-bucket-ae60c.firebasestorage.app</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
