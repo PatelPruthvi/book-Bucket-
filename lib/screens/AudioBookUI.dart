@@ -24,7 +24,7 @@ class _AudioBookUIState extends State<AudioBookUI> {
     getAudio();
     _player.onPlayerStateChanged.listen((event) {
       setState(() {
-        isPlaying = event == PlayerState.PLAYING;
+        isPlaying = event == PlayerState.playing;
       });
     });
     _player.onDurationChanged.listen((Duration) {
@@ -32,17 +32,17 @@ class _AudioBookUIState extends State<AudioBookUI> {
         total = Duration;
       });
     });
-    _player.onAudioPositionChanged.listen((posi) {
+    _player.onPositionChanged.listen((posi) {
       setState(() {
         compl = posi;
       });
     });
-    _player.setUrl(audiobook);
+    _player.setSourceUrl(audiobook);
     super.initState();
   }
 
   getAudio() async {
-    await _player.play(audiobook);
+    await _player.play(UrlSource(audiobook));
   }
 
   Widget build(BuildContext context) {

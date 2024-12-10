@@ -18,12 +18,14 @@ class _ReelQuotesState extends State<ReelQuotes> {
     super.initState();
   }
 
-  Map? mapdata;
+  List<dynamic>? mapdata;
   List<String>? abc;
   Future getD() async {
     http.Response response;
-    response = await http.get(
-        Uri.parse('https://goquotes-api.herokuapp.com/api/v1/random?count=20'));
+    response =
+        await http.get(Uri.parse('https://zenquotes.io/api/quotes?count=20'
+            //'https://goquotes-api.herokuapp.com/api/v1/random?count=20'
+            ));
 
     if (response.statusCode == 200) {
       setState(() {
@@ -42,9 +44,8 @@ class _ReelQuotesState extends State<ReelQuotes> {
           // ignore: prefer_const_literals_to_create_immutables
           children: [
             if (mapdata != null)
-              for (int i = 0; i < 20; i++)
-                MyPost(mapdata!['quotes'][i]['text'],
-                    mapdata!['quotes'][i]['author'])
+              for (int i = 0; i < mapdata!.length; i++)
+                MyPost(mapdata![i]['q'], mapdata![i]['a'])
             else
               Center(
                   child: CircularProgressIndicator(

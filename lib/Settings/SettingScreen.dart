@@ -83,7 +83,7 @@ class ProfileMenu extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0, vertical: 10),
       child: TextButton(
         style: TextButton.styleFrom(
-          primary: dark_blue,
+          foregroundColor: dark_blue,
           padding: EdgeInsets.all(20),
           shape:
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),

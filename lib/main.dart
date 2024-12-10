@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:bookbucket/Settings/SettingScreen.dart';
+import 'package:bookbucket/firebase_options.dart';
 import 'package:bookbucket/screens/AudioBookUI.dart';
 import 'package:bookbucket/screens/Home/HomeScreen.dart';
 import 'package:bookbucket/screens/audiobooklv.dart';
@@ -14,7 +15,7 @@ import 'package:google_nav_bar/google_nav_bar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(MyApp());
 }
 
@@ -43,6 +44,11 @@ class _MyAppState extends State<MyApp> {
           '/InspireQuo': (context) => ReelQuotes(),
           '/AudioUI': (context) => AudioBookUI()
         },
+        theme: ThemeData(
+            elevatedButtonTheme: ElevatedButtonThemeData(
+                style: ButtonStyle(
+                    backgroundColor: WidgetStatePropertyAll(dark_blue_1))),
+            appBarTheme: AppBarTheme(foregroundColor: Colors.white)),
         home: Scaffold(
           backgroundColor: dark_blue,
           body: tabs[_currIndex],
